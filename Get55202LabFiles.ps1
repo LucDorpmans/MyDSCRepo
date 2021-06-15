@@ -1,5 +1,4 @@
 # Get55202LabFiles.ps1
-
 Function DownloadLabFiles {
 Param(
     [string]$Owner,
@@ -41,5 +40,5 @@ Param(
 }
 
 
-DownloadLabFiles -Owner "LucDorpmans" -Repository My-WS-013-Repo -Path 55202ACLabFiles -DestinationPath C:\Library\Github\
+DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\Library\Github\
 
