@@ -1,10 +1,4 @@
 # Get55202LabFiles.ps1
-Function Get-MyScript { Param( [string]$AFile,[switch]$EditFile = $False, 
-							   [string]$SPath = "$env:USERPROFILE\Downloads\")
-			Invoke-Webrequest -Uri "https://raw.githubusercontent.com/LucDorpmans/MyDSPRepo/main/$AFile"  -Outfile "$SPath$AFile" 
-			If ($EditFile) { PSEdit ("$SPath$AFile" )} }
-
-
 Function DownloadLabFiles {
 Param(
     [string]$Owner,
