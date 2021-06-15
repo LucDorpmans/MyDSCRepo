@@ -1,9 +1,4 @@
 # Get55202LabFiles.ps1
-Function Get-MyScript { Param( [string]$AFile,[switch]$EditFile = $False, 
-							   [string]$SPath = "$env:USERPROFILE\Downloads\")
-			Invoke-Webrequest -Uri "https://raw.githubusercontent.com/LucDorpmans/MyDSPRepo/main/$AFile"  -Outfile "$SPath$AFile" 
-			If ($EditFile) { PSEdit ("$SPath$AFile" )} }
-
 
 Function DownloadLabFiles {
 Param(
@@ -15,10 +10,10 @@ Param(
 
     $baseUri = "https://api.github.com/"
     $args = "repos/$Owner/$Repository/contents/$Path"
-    $wr = Invoke-WebRequest -Uri $($baseuri+$args)
+    $wr = Invoke-WebRequest -UseBasicParsing -Uri $($baseuri+$args)
     $objects = $wr.Content | ConvertFrom-Json
-    $files = $objects | where {$_.type -eq "file"} | Select -exp download_url
-    $directories = $objects | where {$_.type -eq "dir"}
+    $files = $objects | Where-Object {$_.type -eq "file"} | Select-Object -exp download_url
+    $directories = $objects | Where-Object {$_.type -eq "dir"}
     
     $directories | ForEach-Object { 
         DownloadFilesFromRepo -Owner $Owner -Repository $Repository -Path $_.path -DestinationPath $($DestinationPath+$_.name)
@@ -36,7 +31,7 @@ Param(
     foreach ($file in $files) {
         $fileDestination = Join-Path $DestinationPath (Split-Path $file -Leaf)
         try {
-            Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose
+            Invoke-WebRequest -Uri $file -OutFile $fileDestination -UseBasicParsing -ErrorAction Stop -Verbose
             "Grabbed '$($file)' to '$fileDestination'"
         } catch {
             throw "Unable to download '$($file.path)'"
