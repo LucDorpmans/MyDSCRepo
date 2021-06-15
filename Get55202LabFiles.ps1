@@ -15,7 +15,7 @@ Param(
     $directories = $objects | Where-Object {$_.type -eq "dir"}
     
     $directories | ForEach-Object { 
-        DownloadFilesFromRepo -Owner $Owner -Repository $Repository -Path $_.path -DestinationPath $($DestinationPath+$_.name)
+        DownloadLabFiles -Owner $Owner -Repository $Repository -Path $_.path -DestinationPath $($DestinationPath+$_.name)
     }
     
     if (-not (Test-Path $DestinationPath)) {
