@@ -40,5 +40,5 @@ Param(
 }
 
 
-DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\Library\Github\
+DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\55202LabFiles\
 
