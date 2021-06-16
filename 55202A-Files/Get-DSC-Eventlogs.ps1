@@ -4,8 +4,11 @@
 wevtutil.exe set-log "microsoft-windows-dsc/analytic" /quiet:true /enabled:true
 
 #PowerShell:
-# Enable-PSTrace [-Force] [-AnalyticOnly] [<CommonParameters>]
-Enable-PSTrace -Force
+Install-PackageProvider nuget -Force 
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+Install-Module xDscDiagnostics -Verbose -Repository PSGallery
+Invoke-Command -ComputerName StudentServer1 { Update-xDcsEventLogStatus -Channel Analytic -Status Enabled }
+Invoke-Command -ComputerName StudentServer1 { Update-xDcsEventLogStatus -Channel debug -Status Enabled }
 
 # List DSC EventLogs
 Get-WinEvent -LogName "Microsoft-Windows-Dsc/Operational"
