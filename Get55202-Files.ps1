@@ -40,5 +40,5 @@ Param(
 }
 
 
-DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\55202-Files\
+DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202-Files -DestinationPath C:\55202-Files\
 
