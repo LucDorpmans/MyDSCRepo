@@ -4,8 +4,10 @@ Function Get-MyScript { Param( [string]$AFile,[switch]$EditFile = $False,
 			Invoke-Webrequest -Uri "https://raw.githubusercontent.com/LucDorpmans/MyDSCRepo/main/$AFile"  -Outfile "$SPath$AFile" 
 			If ($EditFile) { PSEdit  ("$SPath$AFile" )} }
 		
-Get-MyScript "EdgeMSI-Download-Only-Complete.ps1" -EditFile
-Get-MyScript "Edge-InstallOnly.ps1" -EditFile
+Get-MyScript "EdgeMSI-Download-Only-Complete.ps1"
+Get-MyScript "Edge-InstallOnly.ps1"
 Get-MyScript "PowerShell-Core-Download+Install.ps1"
-Get-MyScript "Get55202A-Files.ps1" -EditFile
 Get-MyScript "Chrome-Download+Run-Installer.ps1" 
+Get-MyScript "NuGet+PSGallery+DSC.ps1" -EditFile
+Get-MyScript "Get55202A-Files.ps1" -EditFile
+
