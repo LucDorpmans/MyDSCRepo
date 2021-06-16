@@ -1,4 +1,4 @@
-# Get55202LabFiles.ps1
+# Get55202-Files.ps1
 Function DownloadLabFiles {
 Param(
     [string]$Owner,
@@ -40,5 +40,5 @@ Param(
 }
 
 
-DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\55202LabFiles\
+DownloadLabFiles -Owner "LucDorpmans" -Repository MyDSCRepo -Path 55202ACLabFiles -DestinationPath C:\55202-Files\
 
