@@ -56,3 +56,29 @@ configuration Sample_xDscWebService
 
 Sample_xDscWebService -certificateThumbPrint "AllowUnencryptedTraffic" -OutputPath C:\Demo\NoCert
 Start-DscConfiguration -Path C:\Demo\NoCert -Wait -Verbose -Force
+
+<#
+Get-Website # Check the portnumber of the Pullserver site
+	
+# Navigate to the below-listed service. 
+Start-process  http://localhost:8086/PSDSCPullServer.svc
+
+# Append /$metadata to the URL: ! Be aware this IS case sensitive!
+Start-process 'http://localhost:8086/PSDSCPullServer.svc/$metadata'
+
+
+$o = Invoke-RestMethod -Uri 'http://localhost:8086/PSDSCPullServer.svc/$metadata'
+$o
+$o.Edmx
+$o.Edmx.DataServices
+$o.Edmx.DataServices.Schema
+$o.Edmx.DataServices.Schema[0].EntityType
+
+
+Start-Process Explorer.exe  "C:\Program Files\WindowsPowerShell\DscService"
+
+Start-Process Explorer.exe 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSDesiredStateConfiguration\PullServer'
+
+
+
+#>
