@@ -1,0 +1,11 @@
+Install-Module  xPSDesiredStateConfiguration 
+
+mkdir C:\Temp
+
+Save-Module  xPSDesiredStateConfiguration -Path C:\Temp
+
+
+SimpleExampleWithCredentials -ConfigurationData $ConfigData `
+	-DomainCredentials (Import-Clixml -Path '.\credentials.clixml')
+	
+	
