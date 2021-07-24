@@ -1,0 +1,11 @@
+# Error when using newer (9.x.y) version of xDSC/ xDscWebService in stead of 3.x.y
+
+PS C:\Windows\system32> C:\Lab Files\Module 6 DSC Pull and Push Servers\Instructor_Commented_Sample_xDscWebService.ps1
+At C:\Lab Files\Module 6 DSC Pull and Push Servers\Instructor_Commented_Sample_xDscWebService.ps1:36 char:10
++          xDscWebService PSDSCPullServer #Populates the class attribut ...
++          ~~~~~~~~~~~~~~
+Resource 'xDSCWebService' requires that a value of type 'Boolean' be provided for property 'UseSecurityBestPractices'.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingValueForMandatoryProperty
+	
+	
