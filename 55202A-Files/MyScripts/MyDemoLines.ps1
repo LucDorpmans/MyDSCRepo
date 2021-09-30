@@ -37,16 +37,20 @@ Get-ItemPropertyValue HKLM:\\SOFTWARE\BlueBuffaloPress -Name JustADemo
 
 # Module 6:
 
+# The script we are using based on Sample_xDSC from the Examples folder located at with a few minor modifications
+
+Start-Process Explorer.exe 'C:\Program Files\WindowsPowerShell\Modules\xPSDesiredStateConfiguration\3.13.0.0\Examples'
+
 Get-Website # Check the portnumber of the Pullserver site
 	
 # Navigate to the below-listed service. 
-Start-process  http://localhost:8081/PSDSCPullServer.svc
+Start-process  http://localhost:8086/PSDSCPullServer.svc
 
 # Append /$metadata to the URL: ! Be aware this IS case sensitive!
-Start-process http://localhost:8081/PSDSCPullServer.svc/$metadata
+Start-process 'http://localhost:8086/PSDSCPullServer.svc/$metadata'
 
 
-$o = Invoke-RestMethod -Uri 'http://localhost:8081/PSDSCPullServer.svc/$metadata'
+$o = Invoke-RestMethod -Uri 'http://localhost:8086/PSDSCPullServer.svc/$metadata'
 $o
 $o.Edmx
 $o.Edmx.DataServices
